@@ -11,7 +11,7 @@ Web-based application that reads RSS feeds with several tests implemented using 
 ## Usage
 
 Online:
-1. Go to http://burk.in/feedreader
+1. Go to https://burk.in/feedreader
 2. The tests will load automatically
 3. You can see tests results on the bottom of the page
 
