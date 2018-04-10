@@ -10,6 +10,12 @@ Web-based application that reads RSS feeds with several tests implemented using 
 
 ## Usage
 
+Online:
+1. Go to http://burk.in/feedreader
+2. The tests will load automatically
+3. You can see tests results on the bottom of the page
+
+Locally:
 1. Clone project to your local computer
 2. Run index.html in any browser
 3. The tests will load automatically
