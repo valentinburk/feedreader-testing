@@ -85,7 +85,7 @@ $(function() {
          * Ensure the the feed has at least one entry
          */
         it('has at least one entry', function() {
-            expect($('.feed').children().length).toBeGreaterThan(0);
+            expect($('.feed .entry').length).toBeGreaterThan(0);
         });
     });
 
@@ -93,6 +93,9 @@ $(function() {
     describe('New Feed Selection', function() {
         let initialTitle;
         let initialContent;
+
+        let newTitle;
+        let newContent;
 
         /**
          * Ensure that the feed is loaded
@@ -102,19 +105,24 @@ $(function() {
                 // Set values after the first loading
                 initialTitle = $('.header-title').html();
                 initialContent = $('.feed').html();
-                done();
+
+                // Set values after the second loading
+                loadFeed(1, function() {
+                  newTitle = $('.header-title').html();
+                  newContent = $('.feed').html();
+
+                  // Finish setup
+                  done();
+                });
             });
         });
 
         /**
          * Ensure that content is changing on loading
          */
-        it('content changed on loading', function(done) {
-            loadFeed(1, function() {
-                expect($('.header-title').html()).not.toEqual(initialTitle);
-                expect($('.feed').html()).not.toEqual(initialContent);
-                done();
-            });
+        it('content changed on loading', function() {
+            expect(initialTitle).not.toEqual(newTitle);
+            expect(initialContent).not.toEqual(newContent);
         });
 
         // Restore to default state
